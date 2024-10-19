@@ -11,7 +11,7 @@ export const Projects = () => {
     },
     {
       name: 'Portfolio',
-      url: 'https://your-placement-system.com', // Replace with your actual link
+      url: 'https://narasimharaju.netlify.app/', // Replace with your actual link
       image: require('../assets/img/portfolio.png'), // Ensure correct path
       description: 'An elegant personal portfolio displaying my skills and projects.',
     },
@@ -122,6 +122,7 @@ export const Projects = () => {
           </li>
         ))}
       </ul>
+      <p>Checkout My projects <a href='https://github.com/Narasimha1507'>here</a></p>
     </div>
   );
 };
