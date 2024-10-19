@@ -122,7 +122,7 @@ export const Projects = () => {
           </li>
         ))}
       </ul>
-      <p>Checkout My projects <a href='https://github.com/Narasimha1507'>here</a></p>
+      
     </div>
   );
 };
