@@ -1,0 +1,44 @@
+.contact {
+    padding: 60px 0;
+  }
+  
+  .video-container {
+    border: 2px solid #007bff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .video-element {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  .form-container {
+    border: 2px solid #007bff;
+    padding: 30px;
+    border-radius: 8px;
+    background-color: #f8f9fa;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-control {
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .btn-primary {
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    background-color: #007bff;
+    border: none;
+    transition: background-color 0.3s;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3;
+  }
+  
