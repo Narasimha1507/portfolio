@@ -58,7 +58,7 @@ export const Banner = () => {
                 <span className="tagline">Welcome to my Portfolio</span>
                 <h1>{`Hi! I'm Narasimha....`}</h1>
                 <h2>And I'm a <span className="txt-rotate" dataPeriod="1000" data-rotate='[ "Web Developer", "Software Developer"]'>
-                <span className="wrap" style={{ color: "#61dafb" ,fontWeight: "bolder"}}>{text}</span> {/* Dark blue color */}
+                <span className="wrap" style={{ color: "#61dafb" ,fontWeight: "bolder"}}>{text}</span>
                  </span>
                 </h2>
                   <p>I am a passionate web developer and software engineer currently pursuing my degree at KL University. With a solid foundation in both front-end and back-end technologies, I enjoy building scalable, user-friendly applications. My projects reflect my skills in full-stack development, problem-solving, and software engineering principles.</p>

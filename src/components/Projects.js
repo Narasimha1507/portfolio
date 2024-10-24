@@ -91,6 +91,7 @@ export const Projects = () => {
   };
 
   return (
+    <section className="projects" id="projects">
     <div style={styles.container}>
       <h1 style={styles.heading}>Explore My Portfolio</h1>
       <p style={styles.tagline}>
@@ -124,5 +125,6 @@ export const Projects = () => {
       </ul>
       
     </div>
+    </section>
   );
 };
