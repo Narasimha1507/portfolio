@@ -1,52 +1,49 @@
 const express = require("express");
-const router = express.Router();
-const cors = require("cors");
+const bodyParser = require("body-parser");
 const nodemailer = require("nodemailer");
+const cors = require("cors");
 
-// server used to send send emails
 const app = express();
 app.use(cors());
-app.use(express.json());
-app.use("/", router);
-app.listen(5000, () => console.log("Server Running"));
-console.log(process.env.EMAIL_USER);
-console.log(process.env.EMAIL_PASS);
+app.use(bodyParser.json());
 
-const contactEmail = nodemailer.createTransport({
-  service: 'gmail',
+const gmailTransporter = nodemailer.createTransport({
+  service: "Gmail",
   auth: {
-    user: "rajunarasimha017@gmail.com",
-    pass: "clnf obmx mgbc sbmk"
+    user: "rajunarasimha017@gmail.com", // Gmail ID
+    pass: "clnf obmx mgbc sbmk", // App password
   },
 });
 
-contactEmail.verify((error) => {
-  if (error) {
-    console.log(error);
-  } else {
-    console.log("Ready to Send");
-  }
-});
+app.post("/contact", (req, res) => {
+  const { firstName, lastName, email, phone, message } = req.body;
 
-router.post("/contact", (req, res) => {
-  const name = req.body.firstName + req.body.lastName;
-  const email = req.body.email;
-  const message = req.body.message;
-  const phone = req.body.phone;
-  const mail = {
-    from: "Narasimha Raju",
-    to: {email},
-    subject: "Contact Form Submission - Portfolio",
-    html: `<p>Name: ${name}</p>
-           <p>Email: ${email}</p>
-           <p>Phone: ${phone}</p>
-           <p>Message: ${message}</p>`,
+  const mailOptions = {
+    from: "rajunarasimha017@gmail.com",
+    to: "rajunarasimha017@gmail.com", // Replace with your email
+    subject: "Contact Request From Portfolio",
+    html: `
+      <h3>Contact Details:</h3>
+      <p><b>First Name:</b> ${firstName}</p>
+      <p><b>Last Name:</b> ${lastName}</p>
+      <p><b>Email:</b> ${email}</p>
+      <p><b>Phone:</b> ${phone}</p>
+      <p><b>Message:</b> ${message}</p>
+    `,
   };
-  contactEmail.sendMail(mail, (error) => {
+
+  gmailTransporter.sendMail(mailOptions, (error, info) => {
     if (error) {
-      res.json(error);
+      console.error("Error sending email:", error.message);
+      return res.status(500).json({ code: 500, message: "Failed to send email" });
     } else {
-      res.json({ code: 200, status: "Message Sent" });
+      console.log("Email Sent Successfully:", info.response);
+      return res.status(200).json({ code: 200, message: "Email sent successfully" });
     }
   });
+});
+
+const PORT = 5000;
+app.listen(PORT, () => {
+  console.log(`Server is running on http://localhost:${PORT}`);
 });

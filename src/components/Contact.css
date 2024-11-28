@@ -41,4 +41,44 @@
   .btn-primary:hover {
     background-color: #0056b3;
   }
+  .toast-success {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #4caf50; /* Green */
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-width: 250px;
+    z-index: 1000;
+  }
+  
+  .toast-failure {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #f44336; /* Red */
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-width: 250px;
+    z-index: 1000;
+  }
+  
+  .toast-success .close-toast,
+  .toast-failure .close-toast {
+    margin-left: 15px;
+    cursor: pointer;
+    font-size: 18px;
+  }
+  
+  
   

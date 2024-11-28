@@ -3,7 +3,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import "animate.css";
 import TrackVisibility from "react-on-screen";
 import nameLogoVideo from "../assets/img/name_logo.mp4";
-
+import "./Contact.css"; // Import custom styles for the toast
 
 export const Contact = () => {
   const formInitialDetails = {
@@ -13,9 +13,13 @@ export const Contact = () => {
     phone: "",
     message: "",
   };
+
   const [formDetails, setFormDetails] = useState(formInitialDetails);
   const [buttonText, setButtonText] = useState("Send");
+  // eslint-disable-next-line no-unused-vars
   const [status, setStatus] = useState({});
+  const [showSuccessToast, setShowSuccessToast] = useState(false); // State for success toast
+  const [showErrorToast, setShowErrorToast] = useState(false); // State for error toast
 
   const onFormUpdate = (category, value) => {
     setFormDetails({
@@ -42,13 +46,24 @@ export const Contact = () => {
 
       if (result.code === 200) {
         setStatus({ success: true, message: "Message sent successfully!" });
+        setShowSuccessToast(true); // Show success toast
+        setTimeout(() => setShowSuccessToast(false), 3000); // Hide success toast after 3 seconds
       } else {
         setStatus({ success: false, message: "Something went wrong. Try again later." });
+        setShowErrorToast(true); // Show error toast
+        setTimeout(() => setShowErrorToast(false), 3000); // Hide error toast after 3 seconds
       }
     } catch (error) {
       setStatus({ success: false, message: "Network error. Please try again later." });
       setButtonText("Send");
+      setShowErrorToast(true); // Show error toast
+      setTimeout(() => setShowErrorToast(false), 3000); // Hide error toast after 3 seconds
     }
+  };
+
+  const handleCloseToast = () => {
+    setShowSuccessToast(false); // Close success toast manually
+    setShowErrorToast(false); // Close error toast manually
   };
 
   return (
@@ -121,13 +136,6 @@ export const Contact = () => {
                           <span>{buttonText}</span>
                         </button>
                       </Col>
-                      {status.message && (
-                        <Col>
-                          <p className={status.success === false ? "danger" : "success"}>
-                            {status.message}
-                          </p>
-                        </Col>
-                      )}
                     </Row>
                   </form>
                 </div>
@@ -136,6 +144,22 @@ export const Contact = () => {
           </Col>
         </Row>
       </Container>
+
+      {/* Success Toast */}
+      {showSuccessToast && (
+        <div className="toast-success">
+          Message Sent Successfully!
+          <span className="close-toast" onClick={handleCloseToast}>&#10006;</span>
+        </div>
+      )}
+
+      {/* Error Toast */}
+      {showErrorToast && (
+        <div className="toast-failure">
+          Failed to send the message. Please try again!
+          <span className="close-toast" onClick={handleCloseToast}>&#10006;</span>
+        </div>
+      )}
     </section>
   );
 };
