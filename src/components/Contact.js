@@ -46,7 +46,7 @@ export const Contact = () => {
 
       if (result.code === 200) {
         setStatus({ success: true, message: "Message sent successfully!" });
-        setShowSuccessToast(true); // Show success toast
+        setShowSuccessToast(true);
         setTimeout(() => setShowSuccessToast(false), 3000); // Hide success toast after 3 seconds
       } else {
         setStatus({ success: false, message: "Something went wrong. Try again later." });
