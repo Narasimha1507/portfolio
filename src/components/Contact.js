@@ -132,6 +132,11 @@ export const Contact = () => {
                           placeholder="Message"
                           onChange={(e) => onFormUpdate("message", e.target.value)}
                         ></textarea>
+                        {/* Small note about the free version */}
+                        <p className="delay-note">
+                        **Please note that this service is running on a free plan, which may delay message delivery by up to 50 seconds. Thank you for your patience!**
+                        </p>
+
                         <button type="submit">
                           <span>{buttonText}</span>
                         </button>
