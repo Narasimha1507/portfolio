@@ -1,0 +1,13 @@
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(20px);
+    /* Make the transition slower (2 seconds) so it's clearly visible */
+    transition: opacity 5s ease-out, transform 5s ease-out;
+  }
+  
+  /* When the element is in view, fade/slide in */
+  .fade-in-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  

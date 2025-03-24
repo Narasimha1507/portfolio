@@ -48,7 +48,7 @@ app.post("/contact", async (req, res) => {
         <p>Thank you for reaching out. We have received your message and will get back to you soon!</p>
         <p><b>Your Message:</b></p>
         <p>${message}</p>
-        <p>Best regards,<br>Your Portfolio Team</p>
+        <p>Best regards,<br>S Narasimha Raju.</p>
       `,
     };
 

@@ -73,7 +73,7 @@ export const Contact = () => {
           <Col size={12} md={6}>
             <TrackVisibility>
               {({ isVisible }) => (
-                <div className={`video-container ${isVisible ? "animate__animated animate__zoomIn" : ""}`}>
+                <div className={`video-container ${isVisible ? "animate__animated" : ""}`}>
                   <video
                     src={nameLogoVideo}
                     autoPlay
@@ -89,7 +89,7 @@ export const Contact = () => {
           <Col size={12} md={6}>
             <TrackVisibility>
               {({ isVisible }) => (
-                <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
+                <div className={isVisible ? "animate__animated" : ""}>
                   <h2>Get In Touch</h2>
                   <form onSubmit={handleSubmit}>
                     <Row>
