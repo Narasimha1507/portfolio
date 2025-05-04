@@ -21,6 +21,12 @@ export const Projects = () => {
       image: require('../assets/img/scholarship.png'), // Ensure correct path
       description: 'A system for tracking and managing student scholarships and financial aid.',
     },
+    {
+      name: 'Complaint Management System',
+      url: 'https://36parkavenue.netlify.app/', // Replace with your actual link
+      image: require('../assets/img/cms.png'), // Ensure correct path
+      description: 'A complaint management system is a digital platform designed to efficiently log, track, and resolve user complaints within an organization or community.',
+    },
   ];
 
   const styles = {
